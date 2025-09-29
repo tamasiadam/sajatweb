@@ -4,26 +4,29 @@ body {
     background-image: url('https://4kwallpapers.com/images/wallpapers/anonymous-3840x2160-13656.jpg');
     background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: overlay;
-    background-size: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     width: 100%;
-    height: 100%;
-    margin:auto;
+    min-height: 100vh;
+    margin: 0;
+    padding-bottom: 80px; /* Space for footer */
 }
 
 aside {
-    margin-top: 10vh;
     background-color: rgba(255, 255, 255, 0.78);
     border-radius: 1.4em;
-    padding: 1em;
+    padding: 2em;
     margin-top: 8vh;
-    margin-right: 8vh;;
-    width: 28%;
-    height: 25vh;
+    margin-right: 8vh;
+    margin-left: 3vh;
+    width: 35%;
+    min-height: 200px;
     float: right;
 }
 
 aside p {
-    color:rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1);
 }
 
 #SD {
@@ -49,31 +52,58 @@ nav {
     padding: 2.5vh;
 }
 
-
-
 section {
-
     background-color: rgba(255, 255, 255, 0.78);
     border-radius: 1.4em;
-    padding: 0.em;
+    padding: 1em;
     margin-left: 8vh;
     margin-top: 8vh;
-    margin-left: 20vh;
-    padding-right: 100px;
-    width: 100vh;
-    height: 100%;
+    margin-bottom: 8vh;
+    width: calc(100vh - 2em);
+    max-width: 52%;
+    min-height: 300px;
     float: left;
 }
 
 article {
-    height: 50vh;
+    min-height: 200px;
     padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 2em;
+    overflow: auto;
+}
+
+#anologo {
+    position: relative;
+    height: 20vh;
+    max-width: 100%;
+    float: right;
+    margin-bottom: 2em;
+    margin-left: 1em;
+}
+
+#anonymousArc {
+    height: 30vh;
+    max-width: 100%;
+    float: right;
+    position: relative;
+    margin-left: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+}
+
+#maszkos {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    display: block;
+    margin: 1em auto 0 auto;
 }
 
 .nav-button {
     text-decoration: none;
     color: white;
-    border: none;
+    border: solid rgba(0, 0, 0, 0.3);
     border-radius: 1vh;
     background-color: transparent;
     padding: 1vh;
@@ -88,47 +118,116 @@ article {
     box-shadow: 2px 3px 6px black;
 }
 
-.signup{
+.signup {
     background-color: rgba(202, 202, 202, 0.3);
     border-radius: 1.4em;
-    padding: 1em;
-    margin: 8vh;
-    margin-left: 20vh;
-    margin-right: 20vh;
-    padding-right: 100px;
-    height: 80vh;
+    padding: 2em;
+    margin: 8vh auto;
+    max-width: 700px;
+    min-height: 80vh;
 }
-
 
 form {
     margin: auto;
-    background-color: #ccc;
-    padding: 2em;
+    background-color: rgba(204, 204, 204, 0.95);
+    padding: 2.5em;
     border-radius: 0.8em;
-    width: 60vh;
-    height: 500px;
-    box-shadow: 3px 3px 10px black;
-
+    max-width: 100%;
+    filter: drop-shadow(15px 15px 15px rgba(0, 0, 0, 1));
 }
 
-input {
-    border-radius: 0.55em;
-    width: 15vh;
-    margin: 1vh;
+form h2 {
+    color: rgba(0, 0, 0, 0.85);
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    text-align: center;
 }
 
-textarea {
+form h2:not(:first-child) {
+    margin-top: 2em;
+    padding-top: 1.5em;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+}
+
+form input[type="text"],
+form input[type="email"] {
     border-radius: 0.55em;
-    width: 30vh;
-    height: 5vh;
-    margin: 1vh;
+    width: 100%;
+    padding: 0.8em;
+    margin-bottom: 1.5em;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+form textarea {
+    border-radius: 0.55em;
+    width: 100%;
+    min-height: 120px;
+    padding: 0.8em;
+    margin-bottom: 1.5em;
+    border: 1px solid rgba(0, 0, 0, 0.56);
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1em;
     resize: none;
 }
 
-.checkbox {
-    text-align: left;
-    float: left;
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5em;
+    gap: 0.8em;
+}
 
+form input[type="checkbox"] {
+    width: auto;
+    margin: 0.3em 0 0 0;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-container label {
+    margin: 0;
+    cursor: pointer;
+    flex: 1;
+}
+
+form input[type="submit"] {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 0.55em;
+    padding: 1em 2em;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    transition: 250ms;
+    font-weight: bold;
+}
+
+form input[type="submit"]:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+form ul {
+    text-align: left;
+    margin: 1em 0;
+    padding-left: 1.5em;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+form ul li {
+    margin-bottom: 0.8em;
+    line-height: 1.4;
 }
 
 footer {
@@ -138,18 +237,98 @@ footer {
     background-color: rgba(113, 113, 113, 0.91);
     padding: 20px 0px 20px 0px;
     text-align: center;
-    color: white;
-    font-size: 14px;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     border-top: rgba(0, 0, 0, 0.10) solid;
 }
 
+footer a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    transition: 100ms;
+    color: white;
+    text-decoration: underline;
+}
+
 table {
-  padding: 1px;
-  border: solid black;
+    padding: 1px;
+    border-collapse: collapse;
+}
+
+td {
+    border: solid rgba(0, 0, 0, 0.4);
+    text-align: center;
+    padding: 1em;
 }
 
 th {
-  padding: 1em;
-  border: solid rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    border: solid rgba(0, 0, 0, 0.9);
+}
+
+@media screen and (max-width: 1200px) {
+    section {
+        width: 50%;
+        margin-left: 5vh;
+    }
+    
+    aside {
+        width: 35%;
+        margin-right: 5vh;
+        margin-left: 2vh;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    section {
+        width: 100%;
+        max-width: 90%;
+        float: none;
+        margin: 8vh auto;
+    }
+    
+    aside {
+        width: 90%;
+        max-width: 90%;
+        float: none;
+        margin: 2vh auto 8vh auto;
+    }
+    
+    header h1 {
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+    
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+    }
+    
+    .nav-button {
+        width: 90%;
+        text-align: center;
+    }
+    
+    article {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    
+    #anologo,
+    #anonymousArc {
+        float: none;
+        display: block;
+        margin: 1em auto;
+        max-width: 90%;
+        height: auto;
+    }
 }
